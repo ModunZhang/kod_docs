@@ -1,0 +1,35 @@
+54.178.151.193
+
+Tips:
+	延长 ssh 服务器的时间:http://www.coder4.com/archives/3751
+
+
+
+1.安装 node.js
+	https://www.digitalocean.com/community/tutorials/how-to-install-and-run-a-node-js-app-on-centos-6-4-64bit
+
+2.执行软链接
+	sudo ln -s /usr/local/bin/node /usr/bin/node
+	sudo ln -s /usr/local/lib/node /usr/lib/node
+	sudo ln -s /usr/local/bin/npm /usr/bin/npm
+
+3.安装pomelo
+	sudo npm install pomelo -g
+	sudo ln -s /usr/local/bin/pomelo /usr/bin/pomelo
+
+	pomelo start -D -e production
+
+4.安装mongodb
+	http://docs.mongodb.org/manual/tutorial/install-mongodb-on-red-hat-centos-or-fedora-linux/
+	数据库目录:/var/lib/mongo
+	日志目录:/var/log/mongo
+	sudo service mongod start
+	sudo service mongod stop
+	sudo service mongod restart
+
+	非常重要: 
+		sudo chown -R mongod:mongod /var/log/mongodb
+		sudo chown -R mongod:mongod /var/lib/mongo
+		编辑 /etc/init.d/mongod
+		添加变量 PIDFILEDIR="${PIDFILE%/*}"
+		在start()方法中首行添加 test -d $PIDFILEDIR || (mkdir -p $PIDFILEDIR && chown mongod:mongod $PIDFILEDIR)
