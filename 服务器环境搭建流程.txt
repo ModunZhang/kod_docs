@@ -1,14 +1,10 @@
-54.178.151.193
+服务器IP:54.178.151.193
 
-Tips:
+1:配置ssh
 	延长 ssh 服务器的时间:http://www.coder4.com/archives/3751
 
-
-
-1.安装 node.js
+2.安装 node.js
 	https://www.digitalocean.com/community/tutorials/how-to-install-and-run-a-node-js-app-on-centos-6-4-64bit
-
-2.执行软链接
 	sudo ln -s /usr/local/bin/node /usr/bin/node
 	sudo ln -s /usr/local/lib/node /usr/lib/node
 	sudo ln -s /usr/local/bin/npm /usr/bin/npm
@@ -17,19 +13,17 @@ Tips:
 	sudo npm install pomelo -g
 	sudo ln -s /usr/local/bin/pomelo /usr/bin/pomelo
 
-	pomelo start -D -e production
-
 4.安装mongodb
-	http://docs.mongodb.org/manual/tutorial/install-mongodb-on-red-hat-centos-or-fedora-linux/
-	数据库目录:/var/lib/mongo
-	日志目录:/var/log/mongo
-	sudo service mongod start
-	sudo service mongod stop
-	sudo service mongod restart
+	https://mongodb-documentation.readthedocs.org/en/latest/ecosystem/tutorial/install-mongodb-on-amazon-ec2.html#ec2-starting-mongodb
+	http://docs.mongodb.org/ecosystem/platforms/amazon-ec2/
+	sudo yum install -y mongodb-org-shell
 
-	非常重要: 
-		sudo chown -R mongod:mongod /var/log/mongodb
-		sudo chown -R mongod:mongod /var/lib/mongo
-		编辑 /etc/init.d/mongod
-		添加变量 PIDFILEDIR="${PIDFILE%/*}"
-		在start()方法中首行添加 test -d $PIDFILEDIR || (mkdir -p $PIDFILEDIR && chown mongod:mongod $PIDFILEDIR)
+5.下载服务器代码
+	https://help.github.com/articles/generating-ssh-keys/
+6.编辑环境变量
+	alias la='ls -lahrt'
+	alias server='cd ~/server'
+	alias serverStop='pomelo stop; pomelo kill -f'
+	alias serverStart='cd ~/server/game-server; pomelo start -D -e production; cd ~/server/update-server; pomelo start -D; cd ~/server'
+	alias serverRestart='serverStop; serverStart; cd ~/server'
+	alias listen='tail -f ~/server/game-server/logs/kod-error.log'
