@@ -39,5 +39,7 @@ http://www.rackspace.com/knowledge_center/article/installing-mysql-server-on-cen
 https://confluence.atlassian.com/display/JIRA/Setting+Up+a+MySQL+Database+on+Linux+for+JIRA
 https://confluence.atlassian.com/display/JIRA/Connecting+JIRA+to+MySQL
 3:安装jira
-
+编辑 etc/fstab, 添加 /dev/xvdb   /jira       ext4    defaults,noatime 0   0
+https://confluence.atlassian.com/display/JIRA/Installing+JIRA+from+an+Archive+File+on+Windows%2C+Linux+or+Solaris
+https://confluence.atlassian.com/display/JIRA/Starting+JIRA+Automatically+on+Linux
 4:破解jira
