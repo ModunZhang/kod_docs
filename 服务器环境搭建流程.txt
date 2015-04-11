@@ -1,5 +1,3 @@
-服务器IP:54.178.151.193
-
 1:配置ssh
 	延长 ssh 服务器的时间:http://www.coder4.com/archives/3751
 
@@ -14,7 +12,8 @@
 	sudo ln -s /usr/local/bin/pomelo /usr/bin/pomelo
 
 4.安装mongodb
-	https://mongodb-documentation.readthedocs.org/en/latest/ecosystem/tutorial/install-mongodb-on-amazon-ec2.html#ec2-starting-mongodb
+	#https://mongodb-documentation.readthedocs.org/en/latest/ecosystem/tutorial/install-mongodb-on-amazon-ec2.html#ec2-starting-mongodb
+	http://ibruce.info/2014/01/06/attach-ebs-volume-to-amazon-ec2/
 	http://docs.mongodb.org/ecosystem/platforms/amazon-ec2/
 	sudo yum install -y mongodb-org-shell
 
@@ -27,3 +26,20 @@
 	alias serverStart='cd ~/server/game-server; pomelo start -D -e production; cd ~/server/update-server; pomelo start -D; cd ~/server'
 	alias serverRestart='serverStop; serverStart; cd ~/server'
 	alias listen='tail -f ~/server/game-server/logs/kod-error.log'
+
+
+
+jira服务器搭建
+
+1:安装jdk
+http://stackoverflow.com/questions/10268583/how-to-automate-download-and-installation-of-java-jdk-on-linux
+http://www.unixmen.com/install-oracle-java-jdk-8-centos-76-56-4/
+2:安装mysql
+http://www.rackspace.com/knowledge_center/article/installing-mysql-server-on-centos
+https://confluence.atlassian.com/display/JIRA/Setting+Up+a+MySQL+Database+on+Linux+for+JIRA
+https://confluence.atlassian.com/display/JIRA/Connecting+JIRA+to+MySQL
+3:安装jira
+编辑 etc/fstab, 添加 /dev/xvdb   /jira       ext4    defaults,noatime 0   0
+https://confluence.atlassian.com/display/JIRA/Installing+JIRA+from+an+Archive+File+on+Windows%2C+Linux+or+Solaris
+https://confluence.atlassian.com/display/JIRA/Starting+JIRA+Automatically+on+Linux
+4:破解jira
