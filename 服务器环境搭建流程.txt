@@ -1,3 +1,5 @@
+pomelo服务器搭建
+
 1:配置ssh
 	延长 ssh 服务器的时间:http://www.coder4.com/archives/3751
 
@@ -15,10 +17,13 @@
 	#https://mongodb-documentation.readthedocs.org/en/latest/ecosystem/tutorial/install-mongodb-on-amazon-ec2.html#ec2-starting-mongodb
 	http://ibruce.info/2014/01/06/attach-ebs-volume-to-amazon-ec2/
 	http://docs.mongodb.org/ecosystem/platforms/amazon-ec2/
-	sudo yum install -y mongodb-org-shell
 
 5.下载服务器代码
 	https://help.github.com/articles/generating-ssh-keys/
+	sudo npm install -d --unsafe-perm
+	可选:
+	sudo rm -rf node_modules
+	sudo npm cache clean
 6.编辑环境变量
 	alias la='ls -lahrt'
 	alias server='cd ~/server'
