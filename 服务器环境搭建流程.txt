@@ -10,7 +10,9 @@ pomelo服务器搭建
 	sudo ln -s /usr/local/bin/npm /usr/bin/npm
 
 3.安装pomelo
-	sudo npm install pomelo -g
+	sudo npm install -g cnpm --registry=https://registry.npm.taobao.org
+	sudo ln -s /usr/local/bin/cnpm /usr/bin/cnpm
+	sudo cnpm install pomelo -g
 	sudo ln -s /usr/local/bin/pomelo /usr/bin/pomelo
 
 4.安装mongodb
@@ -20,7 +22,7 @@ pomelo服务器搭建
 
 5.下载服务器代码
 	https://help.github.com/articles/generating-ssh-keys/
-	sudo npm install -d --unsafe-perm
+	sudo cnpm install -d --unsafe-perm
 	可选:
 	sudo rm -rf node_modules
 	sudo npm cache clean
