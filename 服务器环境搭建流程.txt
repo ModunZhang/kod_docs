@@ -2,9 +2,21 @@ pomelo服务器搭建
 
 1:配置ssh
 	延长 ssh 服务器的时间:http://www.coder4.com/archives/3751
+	sudo vi /etc/ssh/sshd_config
+		ClientAliveInterval 60
+		ClientAliveCountMax 3
 
 2.安装 node.js
 	https://www.digitalocean.com/community/tutorials/how-to-install-and-run-a-node-js-app-on-centos-6-4-64bit
+	yum -y groupinstall "Development Tools"
+	cd /usr/src
+	sudo wget http://nodejs.org/dist/v0.10.4/node-v0.10.4.tar.gz
+	sudo tar zxf node-v0.10.4.tar.gz
+	cd node-v0.10.4
+	sudo ./configure
+	sudo make
+	sudo make install
+
 	sudo ln -s /usr/local/bin/node /usr/bin/node
 	sudo ln -s /usr/local/lib/node /usr/lib/node
 	sudo ln -s /usr/local/bin/npm /usr/bin/npm
@@ -16,8 +28,6 @@ pomelo服务器搭建
 	sudo ln -s /usr/local/bin/pomelo /usr/bin/pomelo
 
 4.安装mongodb
-	#https://mongodb-documentation.readthedocs.org/en/latest/ecosystem/tutorial/install-mongodb-on-amazon-ec2.html#ec2-starting-mongodb
-	http://ibruce.info/2014/01/06/attach-ebs-volume-to-amazon-ec2/
 	http://docs.mongodb.org/ecosystem/platforms/amazon-ec2/
 
 5.下载服务器代码
