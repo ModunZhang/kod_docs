@@ -44,7 +44,8 @@ pomelo服务器搭建
 	alias serverRestart='serverStop; serverStart; cd ~/server'
 	alias listen='tail -f ~/server/game-server/logs/kod-error.log'
 
-
+7.更新node.js版本
+	http://theholmesoffice.com/node-js-fundamentals-how-to-upgrade-the-node-js-version/
 
 jira服务器搭建
 
