@@ -9,10 +9,10 @@ pomelo服务器搭建
 2.安装 node.js
 	https://www.digitalocean.com/community/tutorials/how-to-install-and-run-a-node-js-app-on-centos-6-4-64bit
 	yum -y groupinstall "Development Tools"
-	cd /usr/src
-	sudo wget http://nodejs.org/dist/v0.10.4/node-v0.10.4.tar.gz
-	sudo tar zxf node-v0.10.4.tar.gz
-	cd node-v0.10.4
+	cd ~
+	sudo wget https://nodejs.org/dist/v0.10.40/node-v0.10.40.tar.gz
+	sudo tar zxf node-v0.10.40.tar.gz
+	cd node-v0.10.40
 	sudo ./configure
 	sudo make
 	sudo make install
@@ -26,26 +26,37 @@ pomelo服务器搭建
 	sudo ln -s /usr/local/bin/cnpm /usr/bin/cnpm
 	sudo cnpm install pomelo -g
 	sudo ln -s /usr/local/bin/pomelo /usr/bin/pomelo
+	sudo cnpm install pomelo-cli
+	sudo yum install sysstat
 
 4.安装mongodb
 	http://docs.mongodb.org/ecosystem/platforms/amazon-ec2/
 
 5.下载服务器代码
 	https://help.github.com/articles/generating-ssh-keys/
+	cd ~/.ssh/
+	ssh-keygen -t rsa -b 4096 -C "AWS-China-Kod-Hotfix"
+	git clone git@github.com:ModunZhang/kod_server.git
 	sudo cnpm install -d --unsafe-perm
 	可选:
 	sudo rm -rf node_modules
 	sudo npm cache clean
 6.编辑环境变量
 	alias la='ls -lahrt'
-	alias server='cd ~/server'
-	alias serverStop='pomelo stop; pomelo kill -f'
-	alias serverStart='cd ~/server/game-server; pomelo start -D -e production; cd ~/server/update-server; pomelo start -D; cd ~/server'
-	alias serverRestart='serverStop; serverStart; cd ~/server'
-	alias listen='tail -f ~/server/game-server/logs/kod-error.log'
+	alias server='cd /server'
+	alias serverStop='pomelo stop'
+	alias serverStart='cd /server/game-server; pomelo start -D -e develop; cd /server'
+	alias serverStartD='cd /server/game-server; pomelo start -e develop'
+	alias listenE='tail -f /server/game-server/logs/kod-error.log'
+	alias listenR='tail -f /server/game-server/logs/kod-request.log'
+	alias listenT='tail -f /server/game-server/logs/kod-event.log'
+	alias listenF='tail -f /server/game-server/logs/kod-find.log'
+	alias listen='top -c -p `pgrep node | tr "\\n" "," | sed 's/,$//'`'
 
 7.更新node.js版本
 	http://theholmesoffice.com/node-js-fundamentals-how-to-upgrade-the-node-js-version/
+
+	
 
 jira服务器搭建
 
