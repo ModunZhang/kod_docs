@@ -1,14 +1,13 @@
 pomelo服务器搭建
 
 1:配置ssh
-	延长 ssh 服务器的时间:http://www.coder4.com/archives/3751
 	sudo vi /etc/ssh/sshd_config
 		ClientAliveInterval 60
 		ClientAliveCountMax 3
 
 2.安装 node.js
 	https://www.digitalocean.com/community/tutorials/how-to-install-and-run-a-node-js-app-on-centos-6-4-64bit
-	yum -y groupinstall "Development Tools"
+	sudo yum -y groupinstall "Development Tools"
 	cd ~
 	sudo wget https://nodejs.org/dist/v0.10.40/node-v0.10.40.tar.gz
 	sudo tar zxf node-v0.10.40.tar.gz
