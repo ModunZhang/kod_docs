@@ -9,22 +9,19 @@ pomelo服务器搭建
 	https://www.digitalocean.com/community/tutorials/how-to-install-and-run-a-node-js-app-on-centos-6-4-64bit
 	sudo yum -y groupinstall "Development Tools"
 	cd ~
-	sudo wget https://nodejs.org/dist/v0.10.40/node-v0.10.40.tar.gz
-	sudo tar zxf node-v0.10.40.tar.gz
-	cd node-v0.10.40
+	sudo wget https://nodejs.org/dist/latest-v0.12.x/node-v0.12.9.tar.gz
+	sudo tar zxf node-v0.12.9.tar.gz
+	cd node-v0.12.9
 	sudo ./configure
 	sudo make
 	sudo make install
-
-	sudo ln -s /usr/local/bin/node /usr/bin/node
-	sudo ln -s /usr/local/lib/node /usr/lib/node
-	sudo ln -s /usr/local/bin/npm /usr/bin/npm
+	sudo vi /etc/sudoers
+	Defaults    secure_path = /sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin
 
 3.安装pomelo
 	sudo npm install -g cnpm --registry=https://registry.npm.taobao.org
 	sudo ln -s /usr/local/bin/cnpm /usr/bin/cnpm
 	sudo cnpm install pomelo -g
-	sudo ln -s /usr/local/bin/pomelo /usr/bin/pomelo
 	sudo cnpm install pomelo-cli
 	sudo yum install sysstat
 
