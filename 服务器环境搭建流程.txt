@@ -6,6 +6,7 @@ pomelo服务器搭建
 		ClientAliveCountMax 3
 
 2.安装 node.js
+	sudo yum install nodejs npm --enablerepo=epel
 	https://www.digitalocean.com/community/tutorials/how-to-install-and-run-a-node-js-app-on-centos-6-4-64bit
 	sudo yum -y groupinstall "Development Tools"
 	cd ~
