@@ -28,6 +28,9 @@ pomelo服务器搭建
 
 4.安装mongodb
 	http://docs.mongodb.org/ecosystem/platforms/amazon-ec2/
+	https://docs.mongodb.org/manual/tutorial/install-mongodb-on-red-hat/
+	https://docs.mongodb.org/manual/tutorial/install-mongodb-on-amazon/
+	
 
 5.下载服务器代码
 	https://help.github.com/articles/generating-ssh-keys/
