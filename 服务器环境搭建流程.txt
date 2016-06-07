@@ -5,14 +5,16 @@ pomelo服务器搭建
 		ClientAliveInterval 60
 		ClientAliveCountMax 3
 
-2.安装 node.js
-	sudo yum install nodejs npm --enablerepo=epel
+2.安装 node.js(0.10.42可以线上Debug)
+	curl -sL https://rpm.nodesource.com/setup_0.12 | bash -
+	sudo yum install nodejs npm
+
 	https://www.digitalocean.com/community/tutorials/how-to-install-and-run-a-node-js-app-on-centos-6-4-64bit
 	sudo yum -y groupinstall "Development Tools"
 	cd ~
-	sudo wget https://nodejs.org/dist/latest-v0.12.x/node-v0.12.9.tar.gz
-	sudo tar zxf node-v0.12.9.tar.gz
-	cd node-v0.12.9
+	sudo wget https://nodejs.org/dist/latest-v0.12.x/node-v0.12.14.tar.gz
+	sudo tar zxf node-v0.12.14.tar.gz
+	cd node-v0.12.14
 	sudo ./configure
 	sudo make
 	sudo make install
@@ -55,6 +57,22 @@ pomelo服务器搭建
 
 7.更新node.js版本
 	http://theholmesoffice.com/node-js-fundamentals-how-to-upgrade-the-node-js-version/
+
+8.node.js debug(0.10.42)
+	捕获stdout:
+		http://stackoverflow.com/questions/715751/attach-to-a-processes-output-for-viewing
+
+	test.js:
+		function foo () { while (true) { } }
+		function bar () { return foo(); }
+		bar();
+
+	https://gist.github.com/mraleph/6453431
+	gdb attach $(pidof node)
+	b v8::internal::Runtime_StackGuard
+	print 'v8::V8::TerminateExecution'(0)
+	c
+	print V8_Fatal("a", 11, "c")
 
 	
 
